@@ -1,0 +1,34 @@
+name: Get File
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+
+  LSP-File:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get Program
+        run: |
+         git pull origin main
+         ls
+
+      - name: Get File
+        run: |
+         D:\a\LSP\LSP\1
+         ls
+          
+
+      - name: Git Push
+        run: |
+          git commit -m 'Get File'
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git push -u -f origin main
